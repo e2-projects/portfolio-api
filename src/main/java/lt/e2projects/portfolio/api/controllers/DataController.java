@@ -15,4 +15,9 @@ public class DataController implements DataMapping {
     public Profile getProfile() {
         return service.getProfile();
     }
+
+    @Override
+    public String createProfile(Profile profile) {
+        return service.createProfile(profile);
+    }
 }
