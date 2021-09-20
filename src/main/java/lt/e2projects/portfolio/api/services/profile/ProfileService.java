@@ -6,4 +6,6 @@ public interface ProfileService {
 
     Profile getProfile();
 
+    String createProfile(Profile profile);
+
 }
