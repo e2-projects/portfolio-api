@@ -18,10 +18,10 @@ import java.io.IOException;
 
 @Configuration
 @RequiredArgsConstructor
-@EnableConfigurationProperties({ FirebaseConfig.class })
+@EnableConfigurationProperties({ FirebaseProperties.class })
 public class GlobalConfig {
 
-    private final FirebaseConfig firebaseConfig;
+    private final FirebaseProperties firebaseProperties;
 
     @Bean()
     Firestore firestore() {
@@ -30,14 +30,15 @@ public class GlobalConfig {
 
     @PostConstruct
     void initFirebase() throws IOException, NullPointerException {
-        var resource = new ClassPathResource(firebaseConfig.getServiceAccountFile());
+        var resource = new ClassPathResource(firebaseProperties.getServiceAccountFile());
         var serviceAccount = new FileInputStream(new File(resource.getURI()));
 
         var firebaseOptions = FirebaseOptions.builder()
                 .setCredentials(GoogleCredentials.fromStream(serviceAccount))
-                .setDatabaseUrl(firebaseConfig.getDatabaseUrl())
+                .setDatabaseUrl(firebaseProperties.getDatabaseUrl())
                 .build();
 
         FirebaseApp.initializeApp(firebaseOptions);
     }
+
 }

@@ -28,4 +28,12 @@ class ProfileServiceImpl implements ProfileService {
     public String createProfile(Profile profile) {
         return firestoreService.addDocumentAndGetId(CollectionName.PROFILE, profile);
     }
+
+    @Override
+    public Profile updateProfile(Profile profile) {
+        var valuesToUpdate = profile.getValuesMap();
+        firestoreService.updateDocument(CollectionName.PROFILE, valuesToUpdate);
+        return getProfile();
+    }
+
 }
