@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 @Data
 @Configuration
 @ConfigurationProperties("firebase")
-class FirebaseConfig {
+class FirebaseProperties {
 
     private String serviceAccountFile;
     private String databaseUrl;

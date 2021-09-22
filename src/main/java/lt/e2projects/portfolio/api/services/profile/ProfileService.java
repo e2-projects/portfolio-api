@@ -8,4 +8,6 @@ public interface ProfileService {
 
     String createProfile(Profile profile);
 
+    Profile updateProfile(Profile profile);
+
 }

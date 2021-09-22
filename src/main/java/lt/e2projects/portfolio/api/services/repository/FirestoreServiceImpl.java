@@ -1,13 +1,14 @@
 package lt.e2projects.portfolio.api.services.repository;
 
 import com.google.api.core.ApiFuture;
-import com.google.cloud.firestore.CollectionReference;
 import com.google.cloud.firestore.DocumentReference;
 import com.google.cloud.firestore.DocumentSnapshot;
 import com.google.cloud.firestore.Firestore;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+
+import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
 @Service
@@ -19,18 +20,17 @@ class FirestoreServiceImpl implements FirestoreService {
 
     @Override
     public DocumentSnapshot getFirstDocument(String collectionName) {
-        CollectionReference profileList = firestore.collection(collectionName);
-        var list = profileList.listDocuments();
-        var iterator = list.iterator();
-        if (iterator.hasNext()) {
+        DocumentSnapshot snapshot = null;
+        var documentRef = getDocumentReferenceFromCollection(collectionName);
+        if (documentRef != null) {
             try {
-                var apiFuture = iterator.next().get();
-                return apiFuture.get();
+                var apiFuture = documentRef.get();
+                snapshot = apiFuture.get();
             } catch (InterruptedException | ExecutionException e) {
                 log.error("Can't fetch document from Firestore from {} collection", collectionName, e);
             }
         }
-        return null;
+        return snapshot;
     }
 
     @Override
@@ -44,4 +44,14 @@ class FirestoreServiceImpl implements FirestoreService {
         }
         return documentId;
     }
+
+    @Override
+    public void updateDocument(String collectionName, Map<String, Object> valuesMap) {
+        getDocumentReferenceFromCollection(collectionName).update(valuesMap);
+    }
+
+    private DocumentReference getDocumentReferenceFromCollection(String collectionName) {
+        return firestore.collection(collectionName).listDocuments().iterator().next();
+    }
+
 }
