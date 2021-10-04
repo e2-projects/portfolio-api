@@ -16,12 +16,12 @@ public class ProfileController implements ProfileMapping {
 
     @Override
     public Profile getProfile() {
-        return service.getProfile();
+        return service.getDataObject();
     }
 
     @Override
     public String createProfile(Profile profile) {
-        return service.createProfile(profile);
+        return service.createDataObject(profile);
     }
 
     @Override
@@ -31,7 +31,7 @@ public class ProfileController implements ProfileMapping {
                                  String address,
                                  String companyName,
                                  String companyUrl) {
-        return service.updateProfile(
+        return service.updateDataObject(
                 Profile.builder()
                         .name(name)
                         .surname(surname)
@@ -45,5 +45,4 @@ public class ProfileController implements ProfileMapping {
                         .build()
         );
     }
-
 }
