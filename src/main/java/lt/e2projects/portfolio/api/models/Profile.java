@@ -1,6 +1,7 @@
 package lt.e2projects.portfolio.api.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.google.cloud.firestore.annotation.Exclude;
 import io.netty.util.internal.StringUtil;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,7 +16,7 @@ import java.util.Map;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Profile {
+public class Profile implements FirebaseObject {
 
     @NotNull
     private String name;
@@ -28,7 +29,7 @@ public class Profile {
     @NotNull
     private Company company;
 
-    @JsonIgnore
+    @Override
     public Map<String, Object> getValuesMap() {
         var valuesMap = new HashMap<String, Object>();
         if (!StringUtil.isNullOrEmpty(name)) {

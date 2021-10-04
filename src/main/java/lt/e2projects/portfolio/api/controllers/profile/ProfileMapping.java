@@ -41,5 +41,4 @@ interface ProfileMapping {
             @RequestHeader(required = false) String companyName,
             @RequestHeader(required = false) String companyUrl
     );
-
 }

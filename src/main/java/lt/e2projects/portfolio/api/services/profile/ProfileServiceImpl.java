@@ -1,39 +1,29 @@
 package lt.e2projects.portfolio.api.services.profile;
 
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import lt.e2projects.portfolio.api.constants.CollectionName;
 import lt.e2projects.portfolio.api.models.Profile;
 import lt.e2projects.portfolio.api.services.repository.FirestoreService;
 import org.springframework.stereotype.Service;
 
-@Slf4j
 @Service
 @RequiredArgsConstructor
 class ProfileServiceImpl implements ProfileService {
 
-    private final FirestoreService firestoreService;
+    private final FirestoreService repository;
 
     @Override
-    public Profile getProfile() {
-        Profile profile = null;
-        var doc = firestoreService.getFirstDocument(CollectionName.PROFILE);
-        if (doc != null && doc.exists()) {
-            profile = doc.toObject(Profile.class);
-        }
-        return profile;
+    public Profile getDataObject() {
+        return (Profile) repository.get(CollectionName.PROFILE, Profile.class);
     }
 
     @Override
-    public String createProfile(Profile profile) {
-        return firestoreService.addDocumentAndGetId(CollectionName.PROFILE, profile);
+    public String createDataObject(Profile profile) {
+        return repository.create(CollectionName.PROFILE, profile);
     }
 
     @Override
-    public Profile updateProfile(Profile profile) {
-        var valuesToUpdate = profile.getValuesMap();
-        firestoreService.updateDocument(CollectionName.PROFILE, valuesToUpdate);
-        return getProfile();
+    public Profile updateDataObject(Profile profile) {
+        return (Profile) repository.update(CollectionName.PROFILE, profile);
     }
-
 }
