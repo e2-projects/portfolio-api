@@ -7,8 +7,8 @@ import lt.e2projects.portfolio.api.models.Profile;
 import lt.e2projects.portfolio.api.services.repository.FirestoreService;
 import org.springframework.stereotype.Service;
 
-@Service
 @Slf4j
+@Service
 @RequiredArgsConstructor
 class ProfileServiceImpl implements ProfileService {
 

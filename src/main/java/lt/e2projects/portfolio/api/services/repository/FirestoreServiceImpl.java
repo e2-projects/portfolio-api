@@ -11,8 +11,8 @@ import org.springframework.stereotype.Service;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
-@Service
 @Slf4j
+@Service
 @RequiredArgsConstructor
 class FirestoreServiceImpl implements FirestoreService {
 

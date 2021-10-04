@@ -18,7 +18,7 @@ import java.io.IOException;
 
 @Configuration
 @RequiredArgsConstructor
-@EnableConfigurationProperties({ FirebaseProperties.class })
+@EnableConfigurationProperties(FirebaseProperties.class)
 public class GlobalConfig {
 
     private final FirebaseProperties firebaseProperties;
