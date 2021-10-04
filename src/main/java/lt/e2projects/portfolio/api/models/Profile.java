@@ -1,5 +1,6 @@
 package lt.e2projects.portfolio.api.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.netty.util.internal.StringUtil;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -27,6 +28,7 @@ public class Profile {
     @NotNull
     private Company company;
 
+    @JsonIgnore
     public Map<String, Object> getValuesMap() {
         var valuesMap = new HashMap<String, Object>();
         if (!StringUtil.isNullOrEmpty(name)) {

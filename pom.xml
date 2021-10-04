@@ -15,6 +15,7 @@
     <description>My portfolio data initialization API</description>
     <properties>
         <java.version>11</java.version>
+        <swagger.version>3.0.0</swagger.version>
         <firebase.version>8.0.1</firebase.version>
     </properties>
     <dependencies>
@@ -56,6 +57,12 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-boot-starter</artifactId>
+            <version>${swagger.version}</version>
         </dependency>
 
         <dependency>
