@@ -1,7 +1,5 @@
 package lt.e2projects.portfolio.api.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.google.cloud.firestore.annotation.Exclude;
 import io.netty.util.internal.StringUtil;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
