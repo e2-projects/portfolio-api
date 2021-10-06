@@ -147,7 +147,7 @@
                         <include>**/*Spec</include>
                     </includes>
                     <additionalClasspathElements>
-                        <additionalClasspathElement>${basedir}/src/main/resources</additionalClasspathElement>
+                        <additionalClasspathElement>${basedir}/src/test/resources</additionalClasspathElement>
                     </additionalClasspathElements>
                 </configuration>
                 <dependencies>

@@ -30,15 +30,17 @@ public class GlobalConfig {
 
     @PostConstruct
     void initFirebase() throws IOException, NullPointerException {
-        var resource = new ClassPathResource(firebaseProperties.getServiceAccountFile());
-        var serviceAccount = new FileInputStream(new File(resource.getURI()));
+        if (!firebaseProperties.getDisable()) {
+            var resource = new ClassPathResource(firebaseProperties.getServiceAccountFile());
+            var serviceAccount = new FileInputStream(new File(resource.getURI()));
 
-        var firebaseOptions = FirebaseOptions.builder()
-                .setCredentials(GoogleCredentials.fromStream(serviceAccount))
-                .setDatabaseUrl(firebaseProperties.getDatabaseUrl())
-                .build();
+            var firebaseOptions = FirebaseOptions.builder()
+                    .setCredentials(GoogleCredentials.fromStream(serviceAccount))
+                    .setDatabaseUrl(firebaseProperties.getDatabaseUrl())
+                    .build();
 
-        FirebaseApp.initializeApp(firebaseOptions);
+            FirebaseApp.initializeApp(firebaseOptions);
+        }
     }
 
 }

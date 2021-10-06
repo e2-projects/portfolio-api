@@ -4,11 +4,9 @@ import lt.e2projects.portfolio.api.TestConstants
 import lt.e2projects.portfolio.api.TestObjects
 import lt.e2projects.portfolio.api.models.SocialLinks
 import lt.e2projects.portfolio.api.services.social.SocialLinksService
-import org.springframework.boot.test.context.SpringBootTest
 import spock.lang.Specification
 import spock.lang.Subject
 
-@SpringBootTest
 class SocialControllerTest extends Specification {
 
     @Subject

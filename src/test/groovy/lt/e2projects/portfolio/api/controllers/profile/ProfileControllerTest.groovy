@@ -5,11 +5,9 @@ import lt.e2projects.portfolio.api.TestObjects
 import lt.e2projects.portfolio.api.models.Company
 import lt.e2projects.portfolio.api.models.Profile
 import lt.e2projects.portfolio.api.services.profile.ProfileService
-import org.springframework.boot.test.context.SpringBootTest
 import spock.lang.Specification
 import spock.lang.Subject
 
-@SpringBootTest
 class ProfileControllerTest extends Specification {
 
     @Subject
