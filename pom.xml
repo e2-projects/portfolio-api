@@ -20,6 +20,7 @@
         <spock.version>2.0-groovy-3.0</spock.version>
         <gmavenplus.version>1.12.0</gmavenplus.version>
         <surefire.version>3.0.0-M5</surefire.version>
+        <surefire-plugin.version>3.0.0-M5</surefire-plugin.version>
     </properties>
 
     <dependencyManagement>
@@ -145,7 +146,22 @@
                         <include>**/*Test</include>
                         <include>**/*Spec</include>
                     </includes>
+                    <additionalClasspathElements>
+                        <additionalClasspathElement>${basedir}/src/test/resources</additionalClasspathElement>
+                    </additionalClasspathElements>
                 </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.apache.maven.surefire</groupId>
+                        <artifactId>surefire-junit47</artifactId>
+                        <version>${surefire-plugin.version}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.apache.maven.surefire</groupId>
+                        <artifactId>surefire-junit-platform</artifactId>
+                        <version>${surefire-plugin.version}</version>
+                    </dependency>
+                </dependencies>
             </plugin>
         </plugins>
     </build>
