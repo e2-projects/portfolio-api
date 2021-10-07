@@ -21,11 +21,7 @@ public class Profile implements FirebaseObject {
     @NotNull
     private String surname;
     @NotNull
-    private String address;
-    @NotNull
     private String position;
-    @NotNull
-    private Company company;
 
     @Override
     public Map<String, Object> getValuesMap() {
@@ -36,17 +32,8 @@ public class Profile implements FirebaseObject {
         if (!StringUtil.isNullOrEmpty(surname)) {
             valuesMap.put("surname", surname);
         }
-        if (!StringUtil.isNullOrEmpty(address)) {
-            valuesMap.put("address", address);
-        }
         if (!StringUtil.isNullOrEmpty(position)) {
             valuesMap.put("position", position);
-        }
-        if (company != null && (!StringUtil.isNullOrEmpty(company.getName()) || !StringUtil.isNullOrEmpty(company.getUrl()))) {
-            var companyValues = company.getValuesMap();
-            if (!companyValues.isEmpty()) {
-                valuesMap.put("company", companyValues);
-            }
         }
         return valuesMap;
     }

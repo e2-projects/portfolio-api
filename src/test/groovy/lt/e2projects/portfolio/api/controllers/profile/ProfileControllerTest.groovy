@@ -2,7 +2,6 @@ package lt.e2projects.portfolio.api.controllers.profile
 
 import lt.e2projects.portfolio.api.TestConstants
 import lt.e2projects.portfolio.api.TestObjects
-import lt.e2projects.portfolio.api.models.Company
 import lt.e2projects.portfolio.api.models.Profile
 import lt.e2projects.portfolio.api.services.profile.ProfileService
 import spock.lang.Specification
@@ -48,11 +47,11 @@ class ProfileControllerTest extends Specification {
     def "Should call service only with updated Profile values"() {
         given:
             def newPosition = "Unemployed"
-            def request = Profile.builder().position(newPosition).company(Company.builder().build()).build()
+            def request = Profile.builder().position(newPosition).build()
             def responseObject = TestObjects.getProfile()
             responseObject.setPosition(newPosition)
         when: "calling update endpoint method"
-            def response = controller.updateProfile(null, null, newPosition, null, null, null)
+            def response = controller.updateProfile(null, null, newPosition)
         then: "call service and get updated profile"
             1 * profileService.updateDataObject(request) >> responseObject
         expect: "updated"

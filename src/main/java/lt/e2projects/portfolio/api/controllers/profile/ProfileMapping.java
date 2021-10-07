@@ -36,9 +36,6 @@ interface ProfileMapping {
     Profile updateProfile(
             @RequestHeader(required = false) String name,
             @RequestHeader(required = false) String surname,
-            @RequestHeader(required = false) String position,
-            @RequestHeader(required = false) String address,
-            @RequestHeader(required = false) String companyName,
-            @RequestHeader(required = false) String companyUrl
+            @RequestHeader(required = false) String position
     );
 }

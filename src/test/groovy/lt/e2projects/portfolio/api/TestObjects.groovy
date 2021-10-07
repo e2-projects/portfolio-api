@@ -10,9 +10,7 @@ class TestObjects {
         Profile.builder()
             .name(TestConstants.PROFILE_NAME)
             .surname(TestConstants.PROFILE_SURNAME)
-            .address(TestConstants.PROFILE_ADDRESS)
             .position(TestConstants.PROFILE_POSITION)
-            .company(getCompany())
             .build()
     }
 

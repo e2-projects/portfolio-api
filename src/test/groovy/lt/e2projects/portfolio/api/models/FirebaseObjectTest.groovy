@@ -22,12 +22,10 @@ class FirebaseObjectTest extends Specification {
         when:
             def map = profile.getValuesMap()
         then:
-            map.keySet().size() == 5
+            map.keySet().size() == 3
             map.get("name") == profile.getName()
             map.get("surname") == profile.getSurname()
-            map.get("address") == profile.getAddress()
             map.get("position") == profile.getPosition()
-            map.get("company") == TestObjects.getCompany().getValuesMap()
     }
 
     def "Should get all Social Links object values as map"() {
