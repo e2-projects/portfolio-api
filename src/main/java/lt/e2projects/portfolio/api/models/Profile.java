@@ -1,10 +1,10 @@
 package lt.e2projects.portfolio.api.models;
 
-import io.netty.util.internal.StringUtil;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lt.e2projects.portfolio.api.commons.AppUtils;
 
 import javax.validation.constraints.NotNull;
 import java.util.HashMap;
@@ -26,13 +26,13 @@ public class Profile implements FirebaseObject {
     @Override
     public Map<String, Object> getValuesMap() {
         var valuesMap = new HashMap<String, Object>();
-        if (!StringUtil.isNullOrEmpty(name)) {
+        if (AppUtils.isNotNullOrEmpty(name)) {
             valuesMap.put("name", name);
         }
-        if (!StringUtil.isNullOrEmpty(surname)) {
+        if (AppUtils.isNotNullOrEmpty(surname)) {
             valuesMap.put("surname", surname);
         }
-        if (!StringUtil.isNullOrEmpty(position)) {
+        if (AppUtils.isNotNullOrEmpty(position)) {
             valuesMap.put("position", position);
         }
         return valuesMap;
