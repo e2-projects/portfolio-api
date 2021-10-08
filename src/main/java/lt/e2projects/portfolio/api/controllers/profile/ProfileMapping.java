@@ -1,6 +1,7 @@
 package lt.e2projects.portfolio.api.controllers.profile;
 
 import io.swagger.annotations.ApiOperation;
+import lt.e2projects.portfolio.api.constants.Path;
 import lt.e2projects.portfolio.api.models.Profile;
 import org.springframework.web.bind.annotation.*;
 
@@ -8,31 +9,28 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping
 interface ProfileMapping {
 
-    String PROFILE = "/profile";
-    // String PROFILE_UPDATE = "/profile/update";
-
     @ApiOperation(
             value = "Get profile",
-            notes = "Get profile from Firebase. Object is used in Portfolio UI Home tab",
+            notes = "Get profile from Firebase. Object is used in Portfolio UI navigation bar",
             response = Profile.class
     )
-    @GetMapping(PROFILE)
+    @GetMapping(Path.PROFILE)
     Profile getProfile();
 
     @ApiOperation(
             value = "Create profile",
-            notes = "Create profile object in Firebase. Object is used in Portfolio UI Home tab",
+            notes = "Create profile object in Firebase. Object is used in Portfolio UI navigation bar",
             response = String.class
     )
-    @PostMapping(PROFILE)
+    @PostMapping(Path.PROFILE)
     String createProfile(@RequestBody Profile profile);
 
     @ApiOperation(
             value = "Update profile",
-            notes = "Update profile object in Firebase. Object is used in Portfolio UI Home tab",
+            notes = "Update profile object in Firebase. Object is used in Portfolio UI navigation bar",
             response = Profile.class
     )
-    @PatchMapping(PROFILE)
+    @PatchMapping(Path.PROFILE)
     Profile updateProfile(
             @RequestHeader(required = false) String name,
             @RequestHeader(required = false) String surname,

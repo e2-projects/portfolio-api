@@ -1,6 +1,7 @@
 package lt.e2projects.portfolio.api.controllers.social;
 
 import io.swagger.annotations.ApiOperation;
+import lt.e2projects.portfolio.api.constants.Path;
 import lt.e2projects.portfolio.api.models.SocialLinks;
 import org.springframework.web.bind.annotation.*;
 
@@ -8,14 +9,12 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping
 interface SocialMapping {
 
-    String SOCIAL = "/social";
-
     @ApiOperation(
             value = "Get social links",
             notes = "Get social links from Firebase. Object is used in Portfolio UI navigation bar",
             response = SocialLinks.class
     )
-    @GetMapping(SOCIAL)
+    @GetMapping(Path.SOCIAL)
     SocialLinks getSocialLinks();
 
     @ApiOperation(
@@ -23,7 +22,7 @@ interface SocialMapping {
             notes = "Create social links object in Firebase. Object is used in Portfolio UI navigation bar",
             response = String.class
     )
-    @PostMapping(SOCIAL)
+    @PostMapping(Path.SOCIAL)
     String createSocialLinks(@RequestHeader String linkedin,
                              @RequestHeader String facebook,
                              @RequestHeader String stackOverflow,
@@ -34,7 +33,7 @@ interface SocialMapping {
             notes = "Update social links object in Firebase. Object is used in Portfolio UI navigation bar",
             response = SocialLinks.class
     )
-    @PatchMapping(SOCIAL)
+    @PatchMapping(Path.SOCIAL)
     SocialLinks updateSocialLinks(@RequestHeader(required = false) String linkedin,
                                   @RequestHeader(required = false) String facebook,
                                   @RequestHeader(required = false) String stackOverflow,

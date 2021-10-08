@@ -30,7 +30,7 @@ public class GlobalConfig {
 
     @PostConstruct
     void initFirebase() throws IOException, NullPointerException {
-        if (!firebaseProperties.getDisable()) {
+        if (!firebaseProperties.isDisable()) {
             var resource = new ClassPathResource(firebaseProperties.getServiceAccountFile());
             var serviceAccount = new FileInputStream(new File(resource.getURI()));
 
