@@ -4,6 +4,7 @@ import io.swagger.annotations.Api;
 import lombok.RequiredArgsConstructor;
 import lt.e2projects.portfolio.api.models.Company;
 import lt.e2projects.portfolio.api.models.tabs.HomeTabData;
+import lt.e2projects.portfolio.api.services.tabs.home.HomeTabService;
 import org.springframework.stereotype.Controller;
 
 @Api(tags = {"Home Tab Data"})
@@ -11,20 +12,22 @@ import org.springframework.stereotype.Controller;
 @RequiredArgsConstructor
 public class HomeTabController implements HomeTabMapping {
 
+    private final HomeTabService service;
+
     @Override
     public HomeTabData getData() {
-        return null;
+        return service.getDataObject();
     }
 
     @Override
     public String createData(HomeTabData data) {
-        return null;
+        return service.createDataObject(data);
     }
 
     @Override
     public HomeTabData updateProfile(String fullName, String position, String address, String description,
                                      String companyName, String companyUrl) {
-        HomeTabData.builder()
+        return service.updateDataObject(HomeTabData.builder()
                 .fullName(fullName)
                 .position(position)
                 .address(address)
@@ -32,7 +35,7 @@ public class HomeTabController implements HomeTabMapping {
                 .company(Company.builder()
                         .name(companyName)
                         .url(companyUrl)
-                        .build());
-        return null;
+                        .build())
+                .build());
     }
 }

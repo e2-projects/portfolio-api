@@ -6,9 +6,11 @@ class TestConstants {
 
     static final String PROFILE_NAME = "Sofia"
     static final String PROFILE_SURNAME = "Vergara"
+    static final String PROFILE_FULL_NAME = "Sofia Margarita Vergara Vergara"
     static final String PROFILE_ADDRESS = "Cl. 36 #46 - 66, Barranquilla, Atlantico, Colombia"
     static final String PROFILE_POSITION = "Actress"
     static final String PROFILE_COMPANY_NAME = "Modern Family"
+    static final String PROFILE_DESCRIPTION = "Model, actress"
     static final String PROFILE_COMPANY_URL = "https://en.wikipedia.org/wiki/Modern_Family"
 
     static final String LINKEDIN_URL = "https://www.linkedin.com"

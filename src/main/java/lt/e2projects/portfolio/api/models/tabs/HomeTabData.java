@@ -1,5 +1,7 @@
 package lt.e2projects.portfolio.api.models.tabs;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.google.cloud.firestore.annotation.Exclude;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -29,6 +31,8 @@ public class HomeTabData implements FirebaseObject {
     @NotNull
     private Company company;
 
+    @Exclude
+    @JsonIgnore
     @Override
     public Map<String, Object> getValuesMap() {
         var valuesMap = new HashMap<String, Object>();

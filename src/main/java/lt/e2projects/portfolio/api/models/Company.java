@@ -1,5 +1,7 @@
 package lt.e2projects.portfolio.api.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.google.cloud.firestore.annotation.Exclude;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -21,6 +23,8 @@ public class Company implements FirebaseObject {
     @NotNull
     private String url;
 
+    @Exclude
+    @JsonIgnore
     @Override
     public Map<String, Object> getValuesMap() {
         var valuesMap = new HashMap<String, Object>();
