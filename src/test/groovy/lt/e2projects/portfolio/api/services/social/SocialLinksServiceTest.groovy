@@ -53,4 +53,5 @@ class SocialLinksServiceTest extends Specification {
         expect:
             response == updatedSocialLinks
     }
+
 }

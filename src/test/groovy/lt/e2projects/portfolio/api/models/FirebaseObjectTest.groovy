@@ -22,12 +22,10 @@ class FirebaseObjectTest extends Specification {
         when:
             def map = profile.getValuesMap()
         then:
-            map.keySet().size() == 5
+            map.keySet().size() == 3
             map.get("name") == profile.getName()
             map.get("surname") == profile.getSurname()
-            map.get("address") == profile.getAddress()
             map.get("position") == profile.getPosition()
-            map.get("company") == TestObjects.getCompany().getValuesMap()
     }
 
     def "Should get all Social Links object values as map"() {
@@ -42,4 +40,19 @@ class FirebaseObjectTest extends Specification {
             map.get("overflowUrl") == socialLinks.getOverflowUrl()
             map.get("githubUrl") == socialLinks.getGithubUrl()
     }
+
+    def "Should get all Home tab data object values as map"() {
+        given:
+            FirebaseObject homeTabData = TestObjects.getHomeTabData()
+        when:
+            def map = homeTabData.getValuesMap()
+        then:
+            map.keySet().size() == 5
+            map.get("fullName") == homeTabData.getFullName()
+            map.get("position") == homeTabData.getPosition()
+            map.get("address") == homeTabData.getAddress()
+            map.get("description") == homeTabData.getDescription()
+            map.get("company") == homeTabData.getCompany().getValuesMap()
+    }
+
 }

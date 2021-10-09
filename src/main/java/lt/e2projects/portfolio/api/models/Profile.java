@@ -1,10 +1,12 @@
 package lt.e2projects.portfolio.api.models;
 
-import io.netty.util.internal.StringUtil;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.google.cloud.firestore.annotation.Exclude;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lt.e2projects.portfolio.api.commons.AppUtils;
 
 import javax.validation.constraints.NotNull;
 import java.util.HashMap;
@@ -21,32 +23,21 @@ public class Profile implements FirebaseObject {
     @NotNull
     private String surname;
     @NotNull
-    private String address;
-    @NotNull
     private String position;
-    @NotNull
-    private Company company;
 
+    @Exclude
+    @JsonIgnore
     @Override
     public Map<String, Object> getValuesMap() {
         var valuesMap = new HashMap<String, Object>();
-        if (!StringUtil.isNullOrEmpty(name)) {
+        if (AppUtils.isNotNullOrEmpty(name)) {
             valuesMap.put("name", name);
         }
-        if (!StringUtil.isNullOrEmpty(surname)) {
+        if (AppUtils.isNotNullOrEmpty(surname)) {
             valuesMap.put("surname", surname);
         }
-        if (!StringUtil.isNullOrEmpty(address)) {
-            valuesMap.put("address", address);
-        }
-        if (!StringUtil.isNullOrEmpty(position)) {
+        if (AppUtils.isNotNullOrEmpty(position)) {
             valuesMap.put("position", position);
-        }
-        if (company != null && (!StringUtil.isNullOrEmpty(company.getName()) || !StringUtil.isNullOrEmpty(company.getUrl()))) {
-            var companyValues = company.getValuesMap();
-            if (!companyValues.isEmpty()) {
-                valuesMap.put("company", companyValues);
-            }
         }
         return valuesMap;
     }

@@ -3,7 +3,6 @@ package lt.e2projects.portfolio.api.services.profile
 import lt.e2projects.portfolio.api.TestConstants
 import lt.e2projects.portfolio.api.TestObjects
 import lt.e2projects.portfolio.api.constants.CollectionName
-import lt.e2projects.portfolio.api.models.Company
 import lt.e2projects.portfolio.api.models.Profile
 import lt.e2projects.portfolio.api.services.repository.FirestoreService
 import spock.lang.Specification
@@ -44,7 +43,7 @@ class ProfileServiceTest extends Specification {
     def "Should call repository service to update Profile object"() {
         given: "update request"
             def newPosition = "Unemployed"
-            def request = Profile.builder().position(newPosition).company(Company.builder().build()).build()
+            def request = Profile.builder().position(newPosition).build()
             def updatedProfile = TestObjects.getProfile()
             updatedProfile.setPosition(newPosition)
         when:
