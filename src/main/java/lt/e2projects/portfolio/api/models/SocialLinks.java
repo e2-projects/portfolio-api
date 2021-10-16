@@ -25,7 +25,7 @@ public class SocialLinks implements FirebaseObject {
     @Exclude
     @JsonIgnore
     @Override
-    public Map<String, Object> getValuesMap() {
+    public Map<String, Object> valuesMap() {
         var valuesMap = new HashMap<String, Object>();
         if (AppUtils.isNotNullOrEmpty(linkedinUrl)) {
             valuesMap.put("linkedinUrl", linkedinUrl);

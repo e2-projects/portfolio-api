@@ -42,7 +42,7 @@ class FirestoreServiceImpl implements FirestoreService {
 
     @Override
     public Object update(String collectionName, FirebaseObject object) {
-        var valuesMap = object.getValuesMap();
+        var valuesMap = object.valuesMap();
         getDocumentReferenceFromCollection(collectionName).update(valuesMap);
         return get(collectionName, object.getClass());
     }

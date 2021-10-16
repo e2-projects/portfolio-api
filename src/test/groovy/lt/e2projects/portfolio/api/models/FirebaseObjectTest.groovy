@@ -9,7 +9,7 @@ class FirebaseObjectTest extends Specification {
         given:
             FirebaseObject company = TestObjects.getCompany()
         when:
-            def map = company.getValuesMap()
+            def map = company.valuesMap()
         then:
             map.keySet().size() == 2
             map.get("name") == company.getName()
@@ -20,7 +20,7 @@ class FirebaseObjectTest extends Specification {
         given:
             FirebaseObject profile = TestObjects.getProfile()
         when:
-            def map = profile.getValuesMap()
+            def map = profile.valuesMap()
         then:
             map.keySet().size() == 3
             map.get("name") == profile.getName()
@@ -32,7 +32,7 @@ class FirebaseObjectTest extends Specification {
         given:
             FirebaseObject socialLinks = TestObjects.getSocialLinks()
         when:
-            def map = socialLinks.getValuesMap()
+            def map = socialLinks.valuesMap()
         then:
             map.keySet().size() == 4
             map.get("linkedinUrl") == socialLinks.getLinkedinUrl()
@@ -45,14 +45,14 @@ class FirebaseObjectTest extends Specification {
         given:
             FirebaseObject homeTabData = TestObjects.getHomeTabData()
         when:
-            def map = homeTabData.getValuesMap()
+            def map = homeTabData.valuesMap()
         then:
             map.keySet().size() == 5
             map.get("fullName") == homeTabData.getFullName()
             map.get("position") == homeTabData.getPosition()
             map.get("address") == homeTabData.getAddress()
             map.get("description") == homeTabData.getDescription()
-            map.get("company") == homeTabData.getCompany().getValuesMap()
+            map.get("company") == homeTabData.getCompany().valuesMap()
     }
 
 }

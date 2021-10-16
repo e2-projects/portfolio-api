@@ -4,6 +4,6 @@ import java.util.Map;
 
 public interface FirebaseObject {
 
-    Map<String, Object> getValuesMap();
+    Map<String, Object> valuesMap();
 
 }
