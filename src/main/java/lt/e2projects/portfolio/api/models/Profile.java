@@ -28,7 +28,7 @@ public class Profile implements FirebaseObject {
     @Exclude
     @JsonIgnore
     @Override
-    public Map<String, Object> getValuesMap() {
+    public Map<String, Object> valuesMap() {
         var valuesMap = new HashMap<String, Object>();
         if (AppUtils.isNotNullOrEmpty(name)) {
             valuesMap.put("name", name);

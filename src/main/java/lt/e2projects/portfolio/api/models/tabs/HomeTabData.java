@@ -34,7 +34,7 @@ public class HomeTabData implements FirebaseObject {
     @Exclude
     @JsonIgnore
     @Override
-    public Map<String, Object> getValuesMap() {
+    public Map<String, Object> valuesMap() {
         var valuesMap = new HashMap<String, Object>();
         if (AppUtils.isNotNullOrEmpty(fullName)) {
             valuesMap.put("fullName", fullName);
@@ -49,7 +49,7 @@ public class HomeTabData implements FirebaseObject {
             valuesMap.put("description", description);
         }
         if (company != null && (AppUtils.isNotNullOrEmpty(company.getName()) || AppUtils.isNotNullOrEmpty(company.getUrl()))) {
-            var companyValues = company.getValuesMap();
+            var companyValues = company.valuesMap();
             if (!companyValues.isEmpty()) {
                 valuesMap.put("company", companyValues);
             }
