@@ -25,7 +25,7 @@ public class HomeTabController implements HomeTabMapping {
     }
 
     @Override
-    public HomeTabData updateProfile(String fullName, String position, String address, String description,
+    public HomeTabData updateData(String fullName, String position, String address, String description,
                                      String companyName, String companyUrl) {
         return service.updateDataObject(HomeTabData.builder()
                 .fullName(fullName)

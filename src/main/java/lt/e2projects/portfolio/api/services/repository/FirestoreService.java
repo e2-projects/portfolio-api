@@ -1,8 +1,15 @@
 package lt.e2projects.portfolio.api.services.repository;
 
+import com.google.cloud.firestore.Firestore;
 import lt.e2projects.portfolio.api.models.FirebaseObject;
 
 public interface FirestoreService {
+
+    /** Get Firestore instance
+     * @return Firestore instance
+     * @see Firestore
+     * */
+    Firestore getFirestore();
 
     /**
      * Get document object from Firestore<br>

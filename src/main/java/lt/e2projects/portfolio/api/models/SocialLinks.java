@@ -13,8 +13,8 @@ import java.util.Map;
 
 @Data
 @Builder
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class SocialLinks implements FirebaseObject {
 
     private String linkedinUrl;

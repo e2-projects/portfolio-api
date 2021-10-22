@@ -17,14 +17,16 @@ import java.util.Map;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Company implements FirebaseObject {
+public class Skill implements FirebaseObject {
 
     @DocumentId
+    @JsonIgnore
     private String id;
+
     @NotNull
     private String name;
-    @NotNull
-    private String url;
+
+    private int level;
 
     @Exclude
     @JsonIgnore
@@ -34,10 +36,9 @@ public class Company implements FirebaseObject {
         if (AppUtils.isNotNullOrEmpty(name)) {
             valuesMap.put("name", name);
         }
-        if (AppUtils.isNotNullOrEmpty(url)) {
-            valuesMap.put("url", url);
+        if (AppUtils.isNotNullOrEmpty(level)) {
+            valuesMap.put("level", level);
         }
         return valuesMap;
     }
-
 }

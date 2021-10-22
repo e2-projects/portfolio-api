@@ -19,6 +19,11 @@ class FirestoreServiceImpl implements FirestoreService {
     private final Firestore firestore;
 
     @Override
+    public Firestore getFirestore() {
+        return firestore;
+    }
+
+    @Override
     public Object get(String collection, Class<?> clazz) {
         Object object = null;
         var doc = getFirstDocument(collection);
