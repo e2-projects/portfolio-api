@@ -18,4 +18,17 @@ class TestConstants {
     static final String STACKOVERFLOW_URL = "https://stackoverflow.com"
     static final String GITHUB_URL = "https://github.com"
 
+    static final String SKILLS_NAME_1 = "Development"
+    static final String SKILLS_NAME_2 = "Languages"
+    static final String SKILLS_NAME_3 = "Other"
+    static final String SKILL_1_1 = "Java"
+    static final String SKILL_1_2 = "Javascript"
+    static final String SKILL_1_3 = "C++"
+    static final String SKILL_2_1 = "Spanish"
+    static final String SKILL_2_2 = "English"
+    static final String SKILL_3_1 = "MS Office"
+    static final String SKILL_3_2 = "Adobe Photoshop"
+    static final String SKILL_3_3 = "Jira"
+
+
 }

@@ -55,4 +55,16 @@ class FirebaseObjectTest extends Specification {
             map.get("company") == homeTabData.getCompany().valuesMap()
     }
 
+    def "Should get all Skill group object values as map"() {
+        given:
+            FirebaseObject skillGroup = TestObjects.getSkillGroups().get(0)
+        when:
+            def map = skillGroup.valuesMap()
+        then:
+            map.keySet().size() == 3
+            map.get("name") == skillGroup.getName()
+            map.get("position") == skillGroup.getPosition()
+            map.get("skills") == skillGroup.getSkills()
+    }
+
 }

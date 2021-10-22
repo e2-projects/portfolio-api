@@ -31,7 +31,7 @@ interface HomeTabMapping {
             response = HomeTabData.class
     )
     @PatchMapping(Path.TAB_HOME)
-    HomeTabData updateProfile(
+    HomeTabData updateData(
             @RequestHeader(required = false) String fullName,
             @RequestHeader(required = false) String position,
             @RequestHeader(required = false) String address,

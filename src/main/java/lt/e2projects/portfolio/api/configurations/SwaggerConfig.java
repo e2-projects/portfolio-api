@@ -39,7 +39,7 @@ public class SwaggerConfig {
         return UiConfigurationBuilder.builder()
                 .docExpansion(DocExpansion.NONE)
                 .operationsSorter(OperationsSorter.ALPHA)
-                .defaultModelRendering(ModelRendering.EXAMPLE)
+                .defaultModelRendering(ModelRendering.MODEL)
                 .displayRequestDuration(true)
                 .build();
     }

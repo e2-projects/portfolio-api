@@ -8,5 +8,6 @@ public class Path {
     public static final String SOCIAL = "/social";
 
     public static final String TAB_HOME = "/tabs/home";
+    public static final String TAB_SKILLS = "/tab/skills";
 
 }

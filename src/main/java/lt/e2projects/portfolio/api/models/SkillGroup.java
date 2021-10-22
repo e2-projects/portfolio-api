@@ -11,20 +11,26 @@ import lt.e2projects.portfolio.api.commons.AppUtils;
 
 import javax.validation.constraints.NotNull;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Company implements FirebaseObject {
+public class SkillGroup implements FirebaseObject {
 
     @DocumentId
+    @JsonIgnore
     private String id;
+
     @NotNull
     private String name;
-    @NotNull
-    private String url;
+
+    @JsonIgnore
+    private Integer position;
+
+    private List<Skill> skills;
 
     @Exclude
     @JsonIgnore
@@ -34,10 +40,12 @@ public class Company implements FirebaseObject {
         if (AppUtils.isNotNullOrEmpty(name)) {
             valuesMap.put("name", name);
         }
-        if (AppUtils.isNotNullOrEmpty(url)) {
-            valuesMap.put("url", url);
+        if (AppUtils.isNotNullOrEmpty(position)) {
+            valuesMap.put("position", position);
+        }
+        if (AppUtils.isNotNullOrEmpty(skills)) {
+            valuesMap.put("skills", skills);
         }
         return valuesMap;
     }
-
 }

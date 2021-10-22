@@ -1,6 +1,7 @@
 package lt.e2projects.portfolio.api.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.google.cloud.firestore.annotation.DocumentId;
 import com.google.cloud.firestore.annotation.Exclude;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,10 +15,12 @@ import java.util.Map;
 
 @Data
 @Builder
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class Profile implements FirebaseObject {
 
+    @DocumentId
+    private String id;
     @NotNull
     private String name;
     @NotNull
