@@ -8,5 +8,6 @@ public final class CollectionName {
     public static final String SOCIAL = "social";
     public static final String TAB_HOME = "tab-data-home";
     public static final String TAB_SKILLS = "tab-data-skills";
+    public static final String TAB_ABOUT = "tab-data-about";
 
 }

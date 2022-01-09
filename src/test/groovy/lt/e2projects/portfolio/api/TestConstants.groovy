@@ -2,7 +2,11 @@ package lt.e2projects.portfolio.api
 
 class TestConstants {
 
-    static final String DOCUMENT_ID = "jx5sa1syrSDG554";
+    static final String DOCUMENT_ID = "jx5sa1syrSDG554"
+
+    static final String DOC_ID_1 = "sdc5315sdc5"
+    static final String DOC_ID_2 = "sdcsd532sdc"
+    static final String DOC_IDS = String.format("| %s | %s | ", DOC_ID_1, DOC_ID_2)
 
     static final String PROFILE_NAME = "Sofia"
     static final String PROFILE_SURNAME = "Vergara"
@@ -29,6 +33,5 @@ class TestConstants {
     static final String SKILL_3_1 = "MS Office"
     static final String SKILL_3_2 = "Adobe Photoshop"
     static final String SKILL_3_3 = "Jira"
-
 
 }
