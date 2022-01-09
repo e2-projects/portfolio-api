@@ -5,6 +5,7 @@ import lt.e2projects.portfolio.api.models.Profile
 import lt.e2projects.portfolio.api.models.Skill
 import lt.e2projects.portfolio.api.models.SkillGroup
 import lt.e2projects.portfolio.api.models.SocialLinks
+import lt.e2projects.portfolio.api.models.tabs.AboutTabData
 import lt.e2projects.portfolio.api.models.tabs.HomeTabData
 
 import static lt.e2projects.portfolio.api.TestConstants.*
@@ -76,6 +77,19 @@ class TestObjects {
                                 Skill.builder().name(SKILL_2_1).level(1).build(),
                                 Skill.builder().name(SKILL_2_2).level(1).build(),
                         )).build(),
+        )
+    }
+
+    static List<AboutTabData> getAboutTabDataItems() {
+        return Arrays.asList(
+            AboutTabData.builder()
+                .title("Short title 1")
+                .content("Short text\nabout some things.")
+                .build(),
+            AboutTabData.builder()
+                .title("Some Long title about some interesting things")
+                .content("Some text about things which should be interesting, but it isn\'t.")
+                .build()
         )
     }
 
