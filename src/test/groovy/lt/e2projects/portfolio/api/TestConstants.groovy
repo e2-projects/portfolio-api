@@ -6,7 +6,7 @@ class TestConstants {
 
     static final String DOC_ID_1 = "sdc5315sdc5"
     static final String DOC_ID_2 = "sdcsd532sdc"
-    static final String DOC_IDS = String.format("| %s | %s | ", DOC_ID_1, DOC_ID_2)
+    static final String DOC_IDS = String.format("ID: %s; ID: %s; ", DOC_ID_1, DOC_ID_2)
 
     static final String PROFILE_NAME = "Sofia"
     static final String PROFILE_SURNAME = "Vergara"
