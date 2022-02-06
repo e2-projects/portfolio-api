@@ -3,10 +3,7 @@ package lt.e2projects.portfolio.api.controllers.tabs.about;
 import io.swagger.annotations.ApiOperation;
 import lt.e2projects.portfolio.api.constants.Path;
 import lt.e2projects.portfolio.api.models.tabs.AboutTabData;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,6 +17,6 @@ public interface AboutTabMapping {
 
     @ApiOperation("Create About Tab data")
     @PostMapping(Path.TAB_ABOUT)
-    String createAboutData(List<AboutTabData> data);
+    String createAboutData(@RequestBody List<AboutTabData> data);
 
 }
