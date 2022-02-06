@@ -11,6 +11,7 @@ class FirebaseProperties {
 
     private String serviceAccountFile;
     private String databaseUrl;
+    private String storageUrl;
     private boolean disable;
 
 }

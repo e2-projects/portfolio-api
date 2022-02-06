@@ -2,9 +2,12 @@ package lt.e2projects.portfolio.api.configurations;
 
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.cloud.firestore.Firestore;
+import com.google.cloud.storage.Bucket;
+import com.google.cloud.storage.Storage;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
 import com.google.firebase.cloud.FirestoreClient;
+import com.google.firebase.cloud.StorageClient;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -28,6 +31,16 @@ public class GlobalConfig {
         return FirestoreClient.getFirestore();
     }
 
+    @Bean
+    Bucket fileBucket() {
+        return StorageClient.getInstance().bucket();
+    }
+
+    @Bean
+    Storage fileStorage() {
+        return fileBucket().getStorage();
+    }
+
     @PostConstruct
     void initFirebase() throws IOException, NullPointerException {
         if (!firebaseProperties.isDisable()) {
@@ -37,6 +50,7 @@ public class GlobalConfig {
             var firebaseOptions = FirebaseOptions.builder()
                     .setCredentials(GoogleCredentials.fromStream(serviceAccount))
                     .setDatabaseUrl(firebaseProperties.getDatabaseUrl())
+                    .setStorageBucket(firebaseProperties.getStorageUrl())
                     .build();
 
             FirebaseApp.initializeApp(firebaseOptions);
