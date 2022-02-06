@@ -12,4 +12,6 @@ public class Path {
     public static final String TAB_ABOUT = "tab/about";
     public static final String TAB_EXPERIENCE = "tab/experience";
 
+    public static final String FILE = "/file";
+
 }
